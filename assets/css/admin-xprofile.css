@@ -1,0 +1,59 @@
+/**
+* Styles for the xprofile interface
+*/
+
+div#buddypress-groupomatic {
+	margin-top: 25px;
+}
+
+div#buddypress-groupomatic fieldset {
+	width: 40%;
+	padding: 10px 20px 10px 20px;
+	border: 1px solid #cccccc;
+	float: left;
+}
+div#buddypress-groupomatic fieldset legend {
+	margin-left: 5px;
+	padding: 2px 10px 2px 25px;
+	border: 1px solid #cccccc;
+	font-weight: bold;
+	background: url('../images/logo_16.png') no-repeat 5px 2px;
+}
+
+fieldset#buddypress-groupomatic-options table {
+	border-spacing: 0;
+}
+fieldset#buddypress-groupomatic-options table th {
+	font-size: 11px;
+	padding: 0;
+	color: #777777;
+	font-style: italic;
+}
+fieldset#buddypress-groupomatic-options table td {
+	font-size: 14px;
+	padding: 0 5px 0 5px;
+}
+fieldset#buddypress-groupomatic-options table input {
+	width: 100%;
+}
+
+fieldset#buddypress-groupomatic-help {
+	margin-left: 15px;
+	padding-bottom: 20px;
+}
+fieldset#buddypress-groupomatic-help h2 {
+	margin: 10px 0 10px 0;
+}
+fieldset#buddypress-groupomatic-help div {
+	display: none;
+}
+fieldset#buddypress-groupomatic-help > div {
+	margin-left: 20px;
+}
+fieldset#buddypress-groupomatic-help p,
+fieldset#buddypress-groupomatic-help ul {
+	margin-left: 30px;
+}
+fieldset#buddypress-groupomatic-help ul li {
+	margin-left: 20px;
+}

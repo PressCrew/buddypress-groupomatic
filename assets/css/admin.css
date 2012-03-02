@@ -1,0 +1,24 @@
+/**
+* Styles for the admin dashboard
+*/
+
+div#icon-bp-groupomatic.icon16 {
+	background: url('../images/logo_16.png') no-repeat;
+}
+
+div#icon-bp-groupomatic.icon32 {
+	background: url('../images/logo_32.png') no-repeat;
+}
+
+div.wrap table.widefat {
+	width: 400px;
+}
+
+div.wrap p, ul, ol {
+	max-width: 600px;
+}
+
+div.wrap ul li {
+	margin-left: 30px;
+	list-style: disc;
+}
