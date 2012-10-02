@@ -7,16 +7,14 @@ function bp_gom_admin_page_loader()
 
 function bp_gom_admin_setup_menu()
 {
-	if ( is_super_admin() ) {
-		add_submenu_page(
-			'bp-general-settings',
-			__( 'BuddyPress Group-O-Matic', 'buddypress-groupomatic' ),
-			__( 'Group-O-Matic', 'buddypress-groupomatic' ),
-			'manage_options',
-			'bp-groupomatic-general',
-			'bp_gom_admin_page_loader'
-		);
-	}
+	add_menu_page(
+		__( 'Group-O-Matic', 'buddypress-groupomatic' ),
+		__( 'Group-O-Matic', 'buddypress-groupomatic' ),
+		'manage_options',
+		'bp-groupomatic-general',
+		'bp_gom_admin_page_loader',
+		BP_GOM_PLUGIN_URL . '/assets/images/logo_16.png'
+	);
 }
 add_action( bp_core_admin_hook(), 'bp_gom_admin_setup_menu' );
 
@@ -73,7 +71,7 @@ function bp_gom_admin_assets()
 
 	do_action( 'bp_gom_admin_assets' );
 }
-add_action( 'load-buddypress_page_bp-groupomatic-general', 'bp_gom_admin_assets' );
+add_action( 'load-toplevel_page_bp-groupomatic-general', 'bp_gom_admin_assets' );
 
 function bp_gom_admin_xprofile_assets()
 {
@@ -85,7 +83,11 @@ function bp_gom_admin_xprofile_assets()
 
 	do_action( 'bp_gom_admin_xprofile_assets' );
 }
-add_action( 'load-buddypress_page_bp-profile-setup', 'bp_gom_admin_xprofile_assets' );
+if ( version_compare( BP_VERSION, '1.6', '>=' ) ) {
+	add_action( 'load-users_page_bp-profile-setup', 'bp_gom_admin_xprofile_assets' );
+} else {
+	add_action( 'load-buddypress_page_bp-profile-setup', 'bp_gom_admin_xprofile_assets' );
+}
 
 function bp_gom_admin_render_options( $field )
 {
