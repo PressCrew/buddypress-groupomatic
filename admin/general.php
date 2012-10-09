@@ -45,7 +45,7 @@
 		There are no additional installation steps required after plugin activation.
 	</p>
 	<ol>
-		<li>Click on <strong>Profile Fields</strong> under the <strong>BuddyPress</strong> menu.</li>
+		<li>Click on <strong>Profile Fields</strong> under the <strong>Users</strong> menu.</li>
 		<li>Click on <strong>Add New Field</strong> or <strong>Edit</strong> an existing field.</li>
 		<li>Scroll down to <strong>Group-O-Matic Settings</strong> and set options for the field.</li>
 		<li>Save the profile field as you normally would.</li>
