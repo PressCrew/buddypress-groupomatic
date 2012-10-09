@@ -28,8 +28,6 @@ function bp_gom_matching_all_fields()
 
 function bp_gom_matching_group_lookup( BP_XProfile_Field $field, $user_id )
 {
-	global $bp, $wpdb;
-	
 	// get group-o-matic field meta
 	$field_meta = new BP_Gom_Field_Meta( $field->id, true );
 
@@ -49,13 +47,32 @@ function bp_gom_matching_group_lookup( BP_XProfile_Field $field, $user_id )
 	// do we have data?
 	if ( $field_data instanceof BP_XProfile_ProfileData ) {
 		// yep, get value
-		$field_value = $field_data->value;
+		$field_value = maybe_unserialize( $field_data->value );
 	}
 
+	// id to return is empty array by default
+	$group_ids = array();
+
 	// null value means impossible to match
-	if ( null == $field_value ) {
-		return false;
+	if ( null !== $field_value ) {
+		if ( is_array( $field_value ) ) {
+			foreach( $field_value as $this_value ) {
+				$this_id = bp_gom_matching_group_lookup_for_value( $this_value, $field_meta );
+				if ( $this_id ) {
+					$group_ids[] = $this_id;
+				}
+			}
+		} else {
+			$group_ids[] = bp_gom_matching_group_lookup_for_value( $field_value, $field_meta );
+		}
 	}
+
+	return $group_ids;
+}
+
+function bp_gom_matching_group_lookup_for_value( $field_value, $field_meta )
+{
+	global $bp, $wpdb;
 
 	// if method is slug, lower case the value
 	if ( $field_meta->method == 'slug' ) {
@@ -63,11 +80,11 @@ function bp_gom_matching_group_lookup( BP_XProfile_Field $field, $user_id )
 	}
 
 	// replace tokens
-	$pattern = bp_gom_matching_token_to_value( $field_meta->pattern, $field_value );
-	
+	$pattern_value = bp_gom_matching_token_to_value( $field_meta->pattern, $field_value );
+
 	// default sql vars
 	$column = apply_filters( 'bp_gom_matching_group_lookup_column', $field_meta->method, $field_meta );;
-	$pattern = apply_filters( 'bp_gom_matching_group_lookup_pattern', $pattern, $field_meta );
+	$pattern = apply_filters( 'bp_gom_matching_group_lookup_pattern', $pattern_value, $field_meta );
 	$operator = apply_filters( 'bp_gom_matching_group_lookup_operator', '=', $field_meta );
 
 	if ( is_numeric( $pattern ) ) {
@@ -94,14 +111,22 @@ function bp_gom_matching_groups_meta( $user_id, $use_cache = true )
 		return $user_groups_meta;
 	}
 
+	// reset the groups
+	$user_groups_meta->reset();
+
 	// loop all fields
 	foreach ( bp_gom_matching_all_fields() as $field ) {
-		// try to get a matching group
-		$group_id = bp_gom_matching_group_lookup( $field, $user_id );
+		// try to get matching groups
+		$group_ids = bp_gom_matching_group_lookup( $field, $user_id );
 		// get a group?
-		if ( $group_id ) {
+		if ( $group_ids && is_array( $group_ids ) ) {
+			// create field meta instance
 			$field_meta = new BP_Gom_Field_Meta( $field->id );
-			$user_groups_meta->add_group( $group_id, $field_meta );
+			// loop em
+			foreach ( $group_ids as $group_id ) {
+				// add each group
+				$user_groups_meta->add_group( $group_id, $field_meta );
+			}
 		}
 	}
 

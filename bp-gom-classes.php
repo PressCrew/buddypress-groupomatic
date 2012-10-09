@@ -287,7 +287,7 @@ class BP_Gom_User_Groups_Meta
 	private function update_meta()
 	{
 		// groups to save
-		$groups = null;
+		$groups = array();
 
 		// convert objects to arrays
 		foreach ( $this->groups as $user_group_meta ) {
@@ -316,6 +316,11 @@ class BP_Gom_User_Groups_Meta
 	public function update()
 	{
 		$this->update_meta();
+	}
+
+	public function reset()
+	{
+		$this->groups = array();
 	}
 	
 	public function add_group( $group_id, BP_Gom_Field_Meta $field_meta )
