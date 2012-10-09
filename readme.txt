@@ -4,7 +4,7 @@ Donate link: http://shop.presscrew.com/shop/buddypress-groupomatic/
 Tags: buddypress, automatic, groups, extended, profile, xprofile
 Requires at least: 3.0, BuddyPress 1.5.x
 Tested up to: 3.3, BuddyPress 1.5.x
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 
 BuddyPress Group-O-Matic automatically adds members to groups based on extended profile field responses.
 
@@ -14,6 +14,10 @@ BuddyPress Group-O-Matic automatically adds members to groups based on extended 
 
 Group-O-Matic is an extension of the BuddyPress Extended Profile component, and is configured from the
 extended profile Edit Field screen.
+
+[vimeo http://vimeo.com/37754800]
+
+> *If you are anxious to try it out, go to the fully functional demo at http://demo.presscrew.com/*
 
 This plugin is different than other plugins with similar functionality in two very big ways:
 
@@ -61,6 +65,10 @@ As of BuddyPress 1.6 the x-profile editor has moved to Users->Profile Fields
 Not applicable
 
 == Changelog ==
+
+= 1.0.2 =
+
+* Added multi-line select box support
 
 = 1.0.1 =
 
