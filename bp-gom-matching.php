@@ -100,7 +100,7 @@ function bp_gom_matching_group_lookup_for_value( $field_value, $field_meta )
 	return $wpdb->get_var( $sql );
 }
 
-function bp_gom_matching_groups_meta( $user_id, $use_cache = true )
+function bp_gom_matching_groups_meta( $user_id, $field_id = null, $use_cache = true )
 {
 	// load data from cache
 	$user_groups_meta = new BP_Gom_User_Groups_Meta( $user_id );
@@ -113,9 +113,23 @@ function bp_gom_matching_groups_meta( $user_id, $use_cache = true )
 
 	// reset the groups
 	$user_groups_meta->reset();
+	
+	// array of fields to loop
+	$the_fields = array();
+
+	// get matches for one specific field?
+	if ( is_numeric( $field_id ) ) {
+		// new field object
+		$field_obj = new BP_XProfile_Field( (integer) $field_id );
+		// append to the fields array
+		$the_fields[] = $field_obj;
+	} else {
+		// call all fields helper to get ALL fields
+		$the_fields = bp_gom_matching_all_fields();
+	}
 
 	// loop all fields
-	foreach ( bp_gom_matching_all_fields() as $field ) {
+	foreach ( $the_fields as $field ) {
 		// try to get matching groups
 		$group_ids = bp_gom_matching_group_lookup( $field, $user_id );
 		// get a group?
