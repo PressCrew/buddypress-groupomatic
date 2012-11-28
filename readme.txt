@@ -66,6 +66,10 @@ Not applicable
 
 == Changelog ==
 
+= 1.0.3 =
+
+* Improved Multi-Site/Network support
+
 = 1.0.2 =
 
 * Added multi-line select box support
