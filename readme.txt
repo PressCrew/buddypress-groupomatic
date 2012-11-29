@@ -4,7 +4,7 @@ Donate link: http://shop.presscrew.com/shop/buddypress-groupomatic/
 Tags: buddypress, automatic, groups, extended, profile, xprofile
 Requires at least: 3.0, BuddyPress 1.5.x
 Tested up to: 3.3, BuddyPress 1.5.x
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 
 BuddyPress Group-O-Matic automatically adds members to groups based on extended profile field responses.
 
