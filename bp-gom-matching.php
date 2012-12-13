@@ -13,7 +13,7 @@ function bp_gom_matching_all_fields()
 	$fields = array();
 
 	// prep statement
-	$sql = $wpdb->prepare( "SELECT id FROM " . $bp->profile->table_name_fields );
+	$sql = "SELECT id FROM " . $bp->profile->table_name_fields;
 
 	// get all ids as array
 	$field_ids = $wpdb->get_col( $sql );
@@ -93,9 +93,7 @@ function bp_gom_matching_group_lookup_for_value( $field_value, $field_meta )
 		$pattern_sql = $wpdb->prepare( '%s', $pattern );
 	}
 
-	$sql = $wpdb->prepare(
-		"SELECT id FROM {$bp->groups->table_name} WHERE $column $operator $pattern_sql LIMIT 1"
-	);
+	$sql = "SELECT id FROM {$bp->groups->table_name} WHERE $column $operator $pattern_sql LIMIT 1";
 
 	return $wpdb->get_var( $sql );
 }
