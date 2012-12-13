@@ -6,7 +6,7 @@ Description: Easily connect members to groups based on their profile fields
 Author: Marshall Sorenson (MrMaz)
 Author URI: http://marshallsorenson.com/
 License: GNU GENERAL PUBLIC LICENSE 2.0 or later http://www.gnu.org/licenses/gpl.txt
-Version: 1.0.3
+Version: 1.0.4
 Text Domain: buddypress-groupomatic
 Network: true
 */
@@ -16,7 +16,7 @@ Network: true
 // *** DO NOT MODIFY THESE ***
 
 // Configuration
-define( 'BP_GOM_VERSION', '1.0.3' );
+define( 'BP_GOM_VERSION', '1.0.4' );
 define( 'BP_GOM_PLUGIN_NAME', basename( dirname( __FILE__ ) ) );
 define( 'BP_GOM_PLUGIN_TEXTDOMAIN', 'buddypress-groupomatic' );
 

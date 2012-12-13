@@ -4,7 +4,7 @@ Donate link: http://shop.presscrew.com/shop/buddypress-groupomatic/
 Tags: buddypress, automatic, groups, extended, profile, xprofile
 Requires at least: 3.0, BuddyPress 1.5.x
 Tested up to: 3.3, BuddyPress 1.5.x
-Stable tag: 1.0.3
+Stable tag: 1.0.4
 
 BuddyPress Group-O-Matic automatically adds members to groups based on extended profile field responses.
 
@@ -65,6 +65,10 @@ As of BuddyPress 1.6 the x-profile editor has moved to Users->Profile Fields
 Not applicable
 
 == Changelog ==
+
+= 1.0.4 =
+
+* Fixed WordPress 3.5 issues
 
 = 1.0.3 =
 
