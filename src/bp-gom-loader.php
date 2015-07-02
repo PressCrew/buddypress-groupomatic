@@ -17,18 +17,20 @@ Network: true
 
 // Configuration
 define( 'BP_GOM_VERSION', '1.0.4' );
-define( 'BP_GOM_PLUGIN_NAME', basename( dirname( __FILE__ ) ) );
+define( 'BP_GOM_PLUGIN_NAME', 'buddypress-groupomatic' );
 define( 'BP_GOM_PLUGIN_TEXTDOMAIN', 'buddypress-groupomatic' );
+
+// Core Paths
+define( 'BP_GOM_PLUGIN_DIR', dirname( __FILE__ ) );
+
+// Core URLs
+define( 'BP_GOM_PLUGIN_URL', WP_PLUGIN_URL . '/' . BP_GOM_PLUGIN_NAME );
 
 // user meta keys
 define( 'BP_GOM_META_KEY_USER_GROUPS', 'bp_gom_user_groups' );
 
 // replacement tokens
 define( 'BP_GOM_TOKEN_ANSWER', '%answer%' );
-
-// core Paths
-define( 'BP_GOM_PLUGIN_DIR', WP_PLUGIN_DIR . '/' . BP_GOM_PLUGIN_NAME );
-define( 'BP_GOM_PLUGIN_URL', WP_PLUGIN_URL . '/' . BP_GOM_PLUGIN_NAME );
 
 // ***************************
 ///////////////////////////////
